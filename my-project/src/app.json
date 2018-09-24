@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/login/main",
     "pages/index/main",
     "pages/shopCity/main",
     "pages/together/main",
     "pages/superMan/main",
     "pages/my/main",
-    "pages/logs/main",
     "pages/counter/main"
   ],
   "window": {
