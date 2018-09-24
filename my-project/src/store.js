@@ -7,16 +7,15 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    longitude:"",
+    latitude:""
   },
   mutations: {
     increment: (state) => {
-      const obj = state
-      obj.count += 1
+      console.log(state)
     },
     decrement: (state) => {
-      const obj = state
-      obj.count -= 1
+      console.log(state)
     }
   }
 })

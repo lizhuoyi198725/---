@@ -25,13 +25,26 @@ export default {
 
   mounted () {
     // 调用应用实例的方法获取全局数据
+    wx.showLoading();
     const code = wx.getStorageSync('code') || null
-    if(code){
+    console.log(code)
+    if(!code){
+      console.log("需要登陆")
+       wx.login({
+        success:(res) => {
+          if(res.code){
+            wx.setStorageSync('code', res.code)
+          }
+        }
+      })
+    }else{
       console.log("不需要登陆")
+      wx.hideLoading();
       wx.redirectTo({
         url:"/pages/index/main"
       })
     }
+
   }
 
 }

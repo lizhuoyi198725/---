@@ -5,8 +5,7 @@
     "pages/shopCity/main",
     "pages/together/main",
     "pages/superMan/main",
-    "pages/my/main",
-    "pages/counter/main"
+    "pages/my/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

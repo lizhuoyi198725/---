@@ -2,17 +2,7 @@
 export default {
   created () {
 
-    const code = wx.getStorageSync('code') || null
-    if(!code){
-      console.log("需要登陆")
-       wx.login({
-        success:(res) => {
-          if(res.code){
-            wx.setStorageSync('code', res.code)
-          }
-        }
-      })
-    }
+  
     // 调用API从本地缓存中获取数据
   }
 }

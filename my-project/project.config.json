@@ -10,7 +10,7 @@
 	"miniprogramRoot": "dist/",
 	"compileType": "miniprogram",
 	"appid": "wx966791dc80326385",
-	"projectname": "shehuipin",
+	"projectname": "shehuipin-wx",
 	"condition": {
 		"search": {
 			"current": -1,

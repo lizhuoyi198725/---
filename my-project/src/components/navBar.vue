@@ -2,7 +2,7 @@
 <template>
   <div class="container">
     <div class="topNav">
-      <span class="topNav-position">{{text}}</span>
+      <span class="topNav-position" @click="getLocation">{{text}}</span>
       <input class="topNav-input" type="text" placeholder="搜索框初始的文字信息">
       <span class="topNav-message">{{message}}</span>
     </div>
@@ -34,7 +34,18 @@ export default {
   },
 
   methods: {
-  
+    getLocation(){
+      var that = this;
+      wx.getLocation({
+        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+        success: function (res) {
+          var latitude = res.latitude//维度
+          var longitude = res.longitude//经度
+          that.$store.state.latitude = latitude;
+          that.$store.state.longitude = longitude;
+        }
+      })
+    }
   },
 
 }
