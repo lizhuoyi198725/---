@@ -41,9 +41,28 @@ export default {
         success: function (res) {
           var latitude = res.latitude//维度
           var longitude = res.longitude//经度
-          that.$store.state.latitude = latitude;
-          that.$store.state.longitude = longitude;
+          that.loadCity(longitude,latitude);
         }
+      })
+    },
+    loadCity: function (longitude, latitude) {
+      var page = this
+      var ak = '1ECQIV0Kdx6nSAQZLx354tMYOkIkSD7H'
+      wx.request({
+        url: `https://api.map.baidu.com/geocoder/v2/?ak= ${ak}&location=${latitude},${latitude}&output=json`,
+        data: {},
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          // success  
+          console.log(res);
+          // var city = res.data.result.addressComponent.city;
+        },
+        fail: function () {
+          
+        },
+        
       })
     }
   },

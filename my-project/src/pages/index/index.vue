@@ -10,7 +10,7 @@
       </block>
     </swiper>
     <div class="domain">
-      <a href="">我要开团</a>
+      <a href="" @click="payFor">我要开团</a>
       <a href="">拼单进行时</a>
       <a href="">拼达人</a>
       <a href="">热拼服务</a>
@@ -57,12 +57,47 @@ export default {
           })
         }
       })
+    },
+    payFor(){
+
+      // wx.requestPayment({
+      //   'timeStamp': '',
+      //   'nonceStr': '',
+      //   'package': 'prepay_id=wx2017033010242291fcfe0db70013231072',
+      //   'signType': 'MD5',
+      //   'paySign': '',
+      //   'success':function(res){
+      //     console.log(res)
+      //   },
+      //   'fail':function(res){
+      //     console.log(res)
+      //   },
+      //   'complete':function(res){
+      //     console.log(res)
+      //   }
+      // })
     }
   },
 
   created () {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    this.getUserInfo();
+  },
+
+  onLoad: function() {
+    console.log(this.$getPage())
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }else{
+      console.log("自带按钮")
+    }
+    return {
+      title: '社惠拼',
+      path: this.$getPage()
+    }
   }
 }
 </script>

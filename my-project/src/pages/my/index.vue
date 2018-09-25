@@ -1,7 +1,13 @@
 <template>
   <div class="personal">
-    <p>我是个人页</p>
-    <map id="map" :longitude="longitude" :latitude="latitude" :markers="markers"></map>
+    <view class="map_container"> 
+      <map class="map" id="map" longitude="longitude" latitude="latitude" scale="14" show-location="true" markers="markers" bindmarkertap="makertap"></map> 
+    </view> 
+    <!-- <view class="place_info"> 
+      <text>{{placeData.title}}</text> 
+      <text>{{placeData.address}}</text> 
+      <text>{{placeData.telephone}}</text> 
+    </view>  -->
     <navBar :idx="index"></navBar>
   </div>
 </template>
@@ -9,6 +15,7 @@
 <script>
 import navBar from '@/components/navBar'
 
+// 引用百度地图微信小程序JSAPI模块 
 export default {
   components: {
     navBar
@@ -17,23 +24,21 @@ export default {
   data () {
     return {
       index:4,
-      latitude:"",
-      longitude:"",
-      markers:[{
-        id: 1,
-        latitude:"",
-        longitude:"",
-        name: 'T.I.T 创意园'
-      }]
+      markers: [], 
+      city:"",
+      latitude: '', 
+      longitude: '', 
     }
   },
 
-  mounted () {
-    this.longitude = this.$store.state.longitude;
-    this.latitude = this.$store.state.latitude;
-    this.markers[0].longitude = this.$store.state.longitude;
-    this.markers[0].latitude = this.$store.state.latitude;
+  onLoad: function() { 
+    
+  }, 
+
+  methods:{
+
   }
+    
 }
 </script>
 
@@ -41,8 +46,12 @@ export default {
   .personal{
     padding:120rpx 0;
   }
-  map{
-    width: 100%;
-    height: 100vh;
-  }
+  .map_container{ 
+    height: 300px; 
+    width: 100%; 
+  } 
+  .map { 
+    height: 100%; 
+    width: 100%;  
+  } 
 </style>
